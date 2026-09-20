@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 16 Years Old, Adem! 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="final.css">
+</head>
+<body>
+  <div class="stars"></div>
+  <main>
+    <div class="top-message">🎂 ✨ 🎉</div>
+    <h1>Happy 16 Years Old</h1>
+    <h2>Adem! ❤️</h2>
+
+    <div class="photo-frame">
+      <img src="photos/final-photo.jpg" alt="Adem - final birthday photo"
+           onerror="this.style.display='none'; document.getElementById('finalPlaceholder').style.display='flex';">
+      <div id="finalPlaceholder">
+        <span>📸</span>
+        <strong>Add the final photo here</strong>
+        <small>Replace photos/final-photo.jpg</small>
+      </div>
+    </div>
+
+    <p class="final-note">Here's to 16 years of memories — and many more to come! 🥳</p>
+    <button onclick="launchConfetti(180)">Celebrate again 🎉</button>
+    <a href="index.html">← Back to the memories</a>
+  </main>
+  <script>
+    function launchConfetti(amount) {
+      const pieces = ["🎉","✨","🎈","⭐","💜","💗","💛","🥳"];
+      for (let i = 0; i < amount; i++) {
+        const p = document.createElement("div");
+        p.className = "confetti";
+        p.textContent = pieces[Math.floor(Math.random()*pieces.length)];
+        p.style.left = Math.random()*100 + "vw";
+        p.style.fontSize = (12 + Math.random()*18) + "px";
+        p.style.animationDuration = (2 + Math.random()*4) + "s";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 6500);
+      }
+    }
+    window.addEventListener("load", () => setTimeout(() => launchConfetti(100), 300));
+  </script>
+</body>
+</html>
